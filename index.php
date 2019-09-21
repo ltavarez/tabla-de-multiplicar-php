@@ -20,7 +20,37 @@ $blockNumbers = [4,5];
 </head>
 <body>
     
+<!-- Columnas -->
+<?php foreach($numbers as $number): ?>
 
+<div class="columnas"> <?php echo "<span> {$number} </span>" ?> </div>
+
+<?php endforeach ?>
+
+<!-- Fin Columnas -->
+<div></div>
+
+<?php foreach($numbers as $number): ?>
+
+<div class="columnas"> <?php echo "<span> {$number} </span>" ?> </div>
+
+<?php foreach($numbers as $numberMultiplier): ?>
+
+<?php if($numberMultiplier == 1){
+     continue; }
+
+     $multiplication = $number * $numberMultiplier;
+     ?>
+
+<?php if(in_array($numberMultiplier, $blockNumbers)): ?>
+  <div class="columnas-block"> <?php echo "<span> &nbsp; </span>" ?> </div>
+<?php else: ?>
+   <div class="columnas"> <?php echo "<span> {$multiplication} </span>" ?> </div>
+<?php endif ?>
+
+<?php endforeach ?>
+<div></div>
+<?php endforeach ?>
 
 </body>
 </html>
